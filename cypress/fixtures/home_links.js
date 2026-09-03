@@ -1,4 +1,4 @@
-const linksHomePage = {
+const home_links = {
   linkedin: 'https://www.linkedin.com/company/orangehrm/mycompany/',
   facebook: 'https://www.facebook.com/OrangeHRM/',
   twitter: 'https://twitter.com/orangehrm?lang=en',
@@ -6,4 +6,4 @@ const linksHomePage = {
   creditos: 'http://www.orangehrm.com',  
 };
 
-export default linksHomePage;
+export default home_links;
