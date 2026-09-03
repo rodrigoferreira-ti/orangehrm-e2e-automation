@@ -29,6 +29,6 @@ import HOME_ELEMENTS from './elements/home_elements';
 Cypress.Commands.add('login', (username, password) => { // Efetuar o login de forma modular, caso ocorra alguma mudança na tela de login  
     cy.get(HOME_ELEMENTS.LOGIN_ELEMENTS.usernameInput).type(username);
     cy.get(HOME_ELEMENTS.LOGIN_ELEMENTS.passwordInput).type(password);
-    cy.get(HOME_ELEMENTS.LOGIN_ELEMENTS.submitButton).click();  
+    cy.get(HOME_ELEMENTS.LOGIN_ELEMENTS.submitButton).click();
  });
 

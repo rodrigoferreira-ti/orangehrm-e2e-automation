@@ -43,9 +43,9 @@ describe('Acessando o site da OrangeHRM', () => {
   });
   
   it('Efetuar o login com sucesso e voltar a tela principal', () => { // Validando se o login é efetuado com sucesso, se acessa o dashboard e depois desloga.
-    cy.login(accounts.default.username, accounts.default.password);    
+    cy.login(accounts.default.username, accounts.default.password);
     cy.url().should('include', '/web/index.php/dashboard/index');
-    cy.get(HOME_ELEMENTS.LOGIN_ELEMENTS.userDropdown).click();    
+    cy.get(HOME_ELEMENTS.LOGIN_ELEMENTS.userDropdown).click();
     cy.get(HOME_ELEMENTS.LOGIN_ELEMENTS.logoutLink).should('be.visible').click();
     cy.url().should('include', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
   });
