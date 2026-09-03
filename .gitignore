@@ -25,3 +25,12 @@ Thumbs.db
 
 # Git
 .git/
+
+# Cypress - relatórios e mídias geradas localmente
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Relatórios (se usar mochawesome ou similares futuramente)
+cypress/results/
+cypress/reports/

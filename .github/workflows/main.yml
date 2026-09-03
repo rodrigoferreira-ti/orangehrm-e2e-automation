@@ -2,7 +2,6 @@
 name: Executar Testes Cypress
 
 # Define o gatilho (trigger) para o workflow.
-# Neste caso, ele será executado a cada 'push' para a branch 'main'.
 on:
   push:
     branches: [ main ]
@@ -12,29 +11,38 @@ on:
 # Define os "jobs" (tarefas) que serão executados.
 jobs:
   cypress-run:
-    # O tipo de máquina virtual que será usada para executar o job.
     runs-on: ubuntu-latest
-    
-    # Os passos que compõem o job.
+
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      # Define uma versão LTS ativa do Node para evitar conflitos no runner
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Executar testes Cypress
         uses: cypress-io/github-action@v6
-      # Após a conclusão do teste, armazene vídeos e quaisquer capturas de tela.
-      - uses: actions/upload-artifact@v4
-        # Adicione a linha abaixo para armazenar capturas de tela somente em caso de falhas.
+
+      # Armazenar capturas de tela somente se houver falhas
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-          if-no-files-found: ignore # 'warn' ou 'error' também estão disponíveis, o padrão é `warn`
-      - uses: actions/upload-artifact@v4
+          if-no-files-found: ignore
+
+      # Armazenar vídeos somente se houver falhas
+      - name: Upload Videos
+        uses: actions/upload-artifact@v4
+        if: failure()
         with:
           name: cypress-videos
           path: cypress/videos
-          if-no-files-found: ignore # 'warn' ou 'error' também estão disponíveis, o padrão é `warn`
+          if-no-files-found: ignore
 
 
 
