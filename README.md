@@ -33,13 +33,13 @@ Planejamento para as próximas iterações da suíte de testes na área autentic
 O repositório adota uma abordagem modular para evitar código duplicado e seletores espalhados nos testes:
 
 cypress/
-  ├── e2e/               # Especificações de testes (.cy.js)
-  ├── fixtures/          # Massa estática de testes em formato JSON puro
-  ├── support/
-  │    ├── elements/     # Centralização de seletores CSS em constantes
-  │    ├── commands.js   # Custom commands reutilizáveis (ex: cy.login)
-  │    └── e2e.js        # Configurações globais e tratamento de exceções
-.github/workflows/       # Pipeline CI com GitHub Actions
+  ├── e2e/               # Especificações de testes (.cy.js)  
+  ├── fixtures/          # Massa estática de testes em formato JSON puro  
+  ├── support/  
+  │    ├── elements/     # Centralização de seletores CSS em constantes  
+  │    ├── commands.js   # Custom commands reutilizáveis (ex: cy.login)  
+  │    └── e2e.js        # Configurações globais e tratamento de exceções  
+.github/workflows/       # Pipeline CI com GitHub Actions  
 
 ---
 
